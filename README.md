@@ -37,7 +37,7 @@ src/config, src/controllers, src/db, src/middlewares, src/routes, app.ts
 npm install  
 Create .env file:
 
-PORT=5000  
+PORT=3000  
 DATABASE_URL=your_postgres_url  
 JWT_SECRET=your_secret_key  
 
@@ -71,7 +71,7 @@ Authorization: Bearer <access_token>
 
 ## 📖 Swagger Documentation
 
-http://localhost:5000/api-docs
+http://localhost:3000/api-docs
 
 ---
 
