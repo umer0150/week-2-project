@@ -1,0 +1,8 @@
+{
+  "defaultEnv": "default",
+  "default": {
+    "url": { "ENV": "DATABASE_URL" },
+    "dir": "migrations",
+    "tsconfig": "tsconfig.json"
+  }
+}
