@@ -1,10 +1,10 @@
 import express from "express";
 import { env } from "./config/env";
-import "./db/pool";
 import swaggerUi from "swagger-ui-express";
 import { swaggerSpec } from "./config/swagger";
 
 import authRouter from "./routes/auth.routes";
+import { connectDB } from "./db/pool";
 
 const app = express();
 
@@ -18,7 +18,12 @@ app.use(
 
 app.use("/auth", authRouter);
 
+const startServer = async () => {
+  await connectDB();
 
-app.listen(env.PORT, () => {
-  console.log(`Server running on port ${env.PORT}`);
-});
+  app.listen(env.PORT, () => {
+    console.log(`Server running on port ${env.PORT}`);
+  });
+};
+
+startServer();
