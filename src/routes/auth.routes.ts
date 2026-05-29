@@ -145,21 +145,5 @@ router.post("/logout", validate(refreshSchema), logout);
  */
 router.get("/me", authenticate, me);
 
-/**
- * @swagger
- * /auth/admin:
- *   get:
- *     summary: Get all users (admin only)
- *     tags:
- *       - Admin
- *     security:
- *       - bearerAuth: []
- *     responses:
- *       200:
- *         description: List of users
- *       403:
- *         description: Forbidden
- */
-router.get("/admin", authenticate, requireRole("admin"), allUsers);
 
 export default router;
