@@ -3,6 +3,9 @@ import { env } from "../config/env";
 
 export const db = new Pool({
   connectionString: env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 db.connect()
