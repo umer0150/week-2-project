@@ -2,6 +2,9 @@ import express from "express";
 import { env } from "./config/env";
 import swaggerUi from "swagger-ui-express";
 import { swaggerSpec } from "./config/swagger";
+import  cors from "cors";
+import cookieParser from "cookie-parser";
+
 
 import authRouter from "./routes/auth.routes";
 import userRouter from "./routes/user.routes";
@@ -11,6 +14,15 @@ const app = express();
 
 // middleware
 app.use(express.json());
+app.use(cookieParser());
+
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 // swagger docs
 app.use(
@@ -21,7 +33,7 @@ app.use(
 
 // routes
 app.use("/auth", authRouter);
-app.use("/users", userRouter);
+app.use("/admin", userRouter);
 
 // start server
 const startServer = async () => {

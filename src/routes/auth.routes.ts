@@ -5,7 +5,6 @@ import { requireRole } from "../middlewares/role";
 import {
   registerSchema,
   loginSchema,
-  refreshSchema,
   register,
   login,
   refresh,
@@ -101,7 +100,7 @@ router.post("/login", validate(loginSchema), login);
  *       200:
  *         description: New access token generated
  */
-router.post("/refresh", validate(refreshSchema), refresh);
+router.post("/refresh", refresh);
 
 /**
  * @swagger
@@ -126,7 +125,7 @@ router.post("/refresh", validate(refreshSchema), refresh);
  *       200:
  *         description: Logged out successfully
  */
-router.post("/logout", validate(refreshSchema), logout);
+router.post("/logout", logout);
 
 /**
  * @swagger

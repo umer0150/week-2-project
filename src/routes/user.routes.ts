@@ -22,6 +22,6 @@ const router = Router();
  *       403:
  *         description: Forbidden
  */
-router.get("/", authenticate, requireRole("admin"), allUsers);
+router.get("/users", authenticate, requireRole("admin"), allUsers);
 
 export default router;
